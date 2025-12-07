@@ -33,10 +33,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-keio-blue flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full border-4 border-keio-blue">
-        <h1 className="text-3xl font-bold text-keio-gold mb-2 text-center">
+        <h1 className="text-3xl font-bold mb-2 text-center" style={{ color: '#FDD34C' }}>
           KEIO HANDBALL
         </h1>
-        <h2 className="text-xl text-keio-red mb-8 text-center">
+        <h2 className="text-xl mb-8 text-center" style={{ color: '#C4232D' }}>
           Work Load Checker
         </h2>
 
