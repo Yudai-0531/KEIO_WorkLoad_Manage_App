@@ -133,12 +133,20 @@ export default function StaffDashboard() {
               </h1>
               <p className="text-keio-blue">チームのワークロード管理</p>
             </div>
-            <Link
-              href="/"
-              className="bg-keio-red hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
-            >
-              ホームへ
-            </Link>
+            <div className="flex gap-4">
+              <Link
+                href="/staff/team-analysis"
+                className="bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-2 px-6 rounded-lg transition-colors"
+              >
+                チーム分析
+              </Link>
+              <Link
+                href="/"
+                className="bg-keio-red hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              >
+                ホームへ
+              </Link>
+            </div>
           </div>
         </div>
 
