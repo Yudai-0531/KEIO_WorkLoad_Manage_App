@@ -51,7 +51,7 @@ export default function StaffLogin() {
 
           <button
             type="submit"
-            className="w-full bg-keio-blue hover:bg-keio-red text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-keio-red hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             ログイン
           </button>
@@ -59,7 +59,7 @@ export default function StaffLogin() {
           <button
             type="button"
             onClick={() => router.push('/')}
-            className="w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             戻る
           </button>
