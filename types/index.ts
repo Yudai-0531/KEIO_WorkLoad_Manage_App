@@ -38,3 +38,24 @@ export interface ChartData {
   srpe: number
   acwr: number
 }
+
+export interface TeamRPETarget {
+  id: string
+  week_start_date: string
+  monday?: number
+  tuesday?: number
+  wednesday?: number
+  thursday?: number
+  friday?: number
+  saturday?: number
+  sunday?: number
+  created_at: string
+  updated_at: string
+}
+
+export interface WeeklyRPEData {
+  date: string
+  dayOfWeek: string
+  targetRPE: number | null
+  actualRPE: number | null
+}

@@ -153,6 +153,12 @@ export default function StaffDashboard() {
                 チーム分析
               </Link>
               <Link
+                href="/staff/team-rpe"
+                className="bg-keio-gold hover:bg-yellow-600 active:bg-yellow-700 text-keio-blue font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm whitespace-nowrap"
+              >
+                TEAM RPE
+              </Link>
+              <Link
                 href="/"
                 className="bg-keio-red hover:bg-red-700 active:bg-red-800 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm"
               >
