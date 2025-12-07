@@ -250,60 +250,60 @@ export default function ManagePage() {
   }
 
   return (
-    <div className="min-h-screen bg-keio-blue p-4">
+    <div className="min-h-screen bg-keio-blue p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* ヘッダー */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-4 border-keio-blue">
-          <div className="flex justify-between items-center">
+        <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 sm:border-4 border-keio-blue">
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
             <div>
-              <h1 className="text-3xl font-bold text-keio-blue mb-2">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-keio-blue mb-1 sm:mb-2">
                 データ管理
               </h1>
-              <p className="text-keio-blue">選手と不調部位の追加・編集・削除</p>
+              <p className="text-sm sm:text-base text-keio-blue">選手と不調部位の追加・編集・削除</p>
             </div>
             <Link
               href="/staff/dashboard"
-              className="bg-keio-red hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              className="bg-keio-red hover:bg-red-700 active:bg-red-800 text-white font-semibold py-2 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
             >
-              ダッシュボードへ戻る
+              ダッシュボードへ
             </Link>
           </div>
         </div>
 
         {/* タブ切り替え */}
-        <div className="bg-white rounded-lg p-2 mb-4 flex gap-2 border-2 border-keio-blue">
+        <div className="bg-white rounded-lg p-1.5 sm:p-2 mb-3 sm:mb-4 flex gap-1.5 sm:gap-2 border-2 border-keio-blue">
           <button
             onClick={() => setActiveTab('players')}
-            className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-semibold transition-colors text-sm sm:text-base ${
               activeTab === 'players'
                 ? 'bg-keio-blue text-white'
-                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
+                : 'bg-white text-keio-blue hover:bg-keio-gold active:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
             選手管理
           </button>
           <button
             onClick={() => setActiveTab('pain-areas')}
-            className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-semibold transition-colors text-sm sm:text-base ${
               activeTab === 'pain-areas'
                 ? 'bg-keio-blue text-white'
-                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
+                : 'bg-white text-keio-blue hover:bg-keio-gold active:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
-            不調部位管理
+            不調部位
           </button>
         </div>
 
         {/* 選手管理タブ */}
         {activeTab === 'players' && (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* 選手追加フォーム */}
-            <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-              <h2 className="text-xl font-bold text-keio-blue mb-4 flex items-center gap-2">
-                <Plus className="w-5 h-5" />
+            <div className="bg-white rounded-lg p-4 sm:p-6 border-2 border-keio-blue">
+              <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4 flex items-center gap-2">
+                <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 新しい選手を追加
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <input
                   type="text"
                   value={newPlayerName}
@@ -336,12 +336,12 @@ export default function ManagePage() {
             </div>
 
             {/* 選手リスト */}
-            <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-              <h2 className="text-xl font-bold text-keio-blue mb-4">
+            <div className="bg-white rounded-lg p-4 sm:p-6 border-2 border-keio-blue">
+              <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
                 選手一覧 ({players.length}名)
               </h2>
               {players.length === 0 ? (
-                <p className="text-keio-blue text-center py-8">選手がまだ登録されていません</p>
+                <p className="text-sm sm:text-base text-keio-blue text-center py-6 sm:py-8">選手がまだ登録されていません</p>
               ) : (
                 <div className="space-y-2">
                   {players.map((player) => (
@@ -421,14 +421,14 @@ export default function ManagePage() {
 
         {/* 不調部位管理タブ */}
         {activeTab === 'pain-areas' && (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* 不調部位追加フォーム */}
-            <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-              <h2 className="text-xl font-bold text-keio-blue mb-4 flex items-center gap-2">
-                <Plus className="w-5 h-5" />
+            <div className="bg-white rounded-lg p-4 sm:p-6 border-2 border-keio-blue">
+              <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4 flex items-center gap-2">
+                <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 新しい不調部位を追加
               </h2>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <input
                   type="text"
                   value={newPainAreaName}
@@ -446,14 +446,14 @@ export default function ManagePage() {
             </div>
 
             {/* 不調部位リスト */}
-            <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-              <h2 className="text-xl font-bold text-keio-blue mb-4">
+            <div className="bg-white rounded-lg p-4 sm:p-6 border-2 border-keio-blue">
+              <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
                 不調部位一覧 ({painAreas.length}件)
               </h2>
               {painAreas.length === 0 ? (
-                <p className="text-keio-blue text-center py-8">不調部位がまだ登録されていません</p>
+                <p className="text-sm sm:text-base text-keio-blue text-center py-6 sm:py-8">不調部位がまだ登録されていません</p>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {painAreas.map((painArea) => (
                     <div
                       key={painArea.id}

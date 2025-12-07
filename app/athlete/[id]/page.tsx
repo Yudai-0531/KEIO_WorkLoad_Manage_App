@@ -216,24 +216,24 @@ export default function AthletePage() {
   }
 
   return (
-    <div className="min-h-screen bg-keio-blue p-4">
+    <div className="min-h-screen bg-keio-blue p-2 sm:p-4">
       <div className="max-w-2xl mx-auto">
         {/* ヘッダー */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-4 border-keio-blue">
+        <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 sm:border-4 border-keio-blue">
           <button
             onClick={() => router.push('/')}
-            className="text-keio-blue hover:text-keio-gold mb-4 font-semibold"
+            className="text-keio-blue hover:text-keio-gold active:text-keio-gold mb-3 sm:mb-4 font-semibold text-sm sm:text-base flex items-center gap-1"
           >
             ← 戻る
           </button>
-          <h1 className="text-2xl font-bold text-keio-blue">
+          <h1 className="text-xl sm:text-2xl font-bold text-keio-blue break-words">
             {player.name} ({player.position})
           </h1>
-          <p className="text-keio-blue">目標体重: {player.goal_weight}kg</p>
+          <p className="text-sm sm:text-base text-keio-blue">目標体重: {player.goal_weight}kg</p>
         </div>
 
         {/* 日付選択 */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
+        <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 border-keio-blue">
           <label className="block text-sm font-medium text-keio-blue mb-2">
             日付
           </label>
@@ -241,38 +241,38 @@ export default function AthletePage() {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full p-3 border-2 border-keio-blue rounded-lg text-keio-blue"
+            className="w-full p-3 border-2 border-keio-blue rounded-lg text-keio-blue text-base"
           />
         </div>
 
         {/* タブ切り替え */}
-        <div className="bg-white rounded-lg p-2 mb-4 flex gap-2 border-2 border-keio-blue">
+        <div className="bg-white rounded-lg p-1.5 sm:p-2 mb-3 sm:mb-4 flex gap-1.5 sm:gap-2 border-2 border-keio-blue">
           <button
             onClick={() => setActiveTab('pre')}
-            className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-semibold transition-colors text-xs sm:text-base ${
               activeTab === 'pre'
                 ? 'bg-keio-blue text-white'
-                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
+                : 'bg-white text-keio-blue hover:bg-keio-gold active:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
-            プレー前入力
+            プレー前
           </button>
           <button
             onClick={() => setActiveTab('post')}
-            className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-semibold transition-colors text-xs sm:text-base ${
               activeTab === 'post'
                 ? 'bg-keio-blue text-white'
-                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
+                : 'bg-white text-keio-blue hover:bg-keio-gold active:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
-            プレー後入力
+            プレー後
           </button>
           <button
             onClick={() => setActiveTab('record')}
-            className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-semibold transition-colors text-xs sm:text-base ${
               activeTab === 'record'
                 ? 'bg-keio-blue text-white'
-                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
+                : 'bg-white text-keio-blue hover:bg-keio-gold active:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
             記録
@@ -281,7 +281,7 @@ export default function AthletePage() {
 
         {/* プレー前入力フォーム */}
         {activeTab === 'pre' && (
-          <div className="bg-white rounded-lg p-6 space-y-6 border-2 border-keio-blue">
+          <div className="bg-white rounded-lg p-4 sm:p-6 space-y-4 sm:space-y-6 border-2 border-keio-blue">
             <div>
               <label className="block text-sm font-medium text-keio-blue mb-2">
                 体重 (kg)
@@ -366,7 +366,7 @@ export default function AthletePage() {
             <button
               onClick={handleSubmitPre}
               disabled={saving}
-              className="w-full bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-keio-gold hover:bg-yellow-600 active:bg-yellow-700 text-keio-blue font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-colors disabled:opacity-50 text-base sm:text-lg"
             >
               {saving ? '保存中...' : 'プレー前データを保存'}
             </button>
@@ -375,7 +375,7 @@ export default function AthletePage() {
 
         {/* プレー後入力フォーム */}
         {activeTab === 'post' && (
-          <div className="bg-white rounded-lg p-6 space-y-6 border-2 border-keio-blue">
+          <div className="bg-white rounded-lg p-4 sm:p-6 space-y-4 sm:space-y-6 border-2 border-keio-blue">
             <div>
               <label className="block text-sm font-medium text-keio-blue mb-2">
                 練習後疲労度 RPE: {postFatigueRpe}
@@ -427,7 +427,7 @@ export default function AthletePage() {
             <button
               onClick={handleSubmitPost}
               disabled={saving}
-              className="w-full bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-keio-gold hover:bg-yellow-600 active:bg-yellow-700 text-keio-blue font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-colors disabled:opacity-50 text-base sm:text-lg"
             >
               {saving ? '保存中...' : 'プレー後データを保存'}
             </button>
@@ -436,40 +436,40 @@ export default function AthletePage() {
 
         {/* 記録タブ */}
         {activeTab === 'record' && (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* 統計情報 */}
-            <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-              <h2 className="text-xl font-bold text-keio-blue mb-4">
+            <div className="bg-white rounded-lg p-4 sm:p-6 border-2 border-keio-blue">
+              <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
                 直近7日間の統計
               </h2>
               {recordData.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-4 bg-white rounded-lg border-2 border-keio-blue">
-                    <p className="text-sm text-keio-blue mb-1">平均体重</p>
-                    <p className="text-2xl font-bold text-keio-blue">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                  <div className="p-3 sm:p-4 bg-white rounded-lg border-2 border-keio-blue">
+                    <p className="text-xs sm:text-sm text-keio-blue mb-1">平均体重</p>
+                    <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                       {(recordData.slice(0, 7).filter(d => d.weight).reduce((sum, d) => sum + (d.weight || 0), 0) / 
                         Math.max(1, recordData.slice(0, 7).filter(d => d.weight).length)).toFixed(1)} kg
                     </p>
                   </div>
-                  <div className="p-4 bg-white rounded-lg border-2 border-keio-blue">
-                    <p className="text-sm text-keio-blue mb-1">平均睡眠時間</p>
-                    <p className="text-2xl font-bold text-keio-blue">
+                  <div className="p-3 sm:p-4 bg-white rounded-lg border-2 border-keio-blue">
+                    <p className="text-xs sm:text-sm text-keio-blue mb-1">平均睡眠</p>
+                    <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                       {(recordData.slice(0, 7).filter(d => d.sleep_hours).reduce((sum, d) => sum + (d.sleep_hours || 0), 0) / 
                         Math.max(1, recordData.slice(0, 7).filter(d => d.sleep_hours).length)).toFixed(1)} h
                     </p>
                   </div>
-                  <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
-                    <p className="text-sm text-keio-blue mb-1">平均sRPE</p>
-                    <p className="text-2xl font-bold text-keio-blue">
+                  <div className="p-3 sm:p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
+                    <p className="text-xs sm:text-sm text-keio-blue mb-1">平均sRPE</p>
+                    <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                       {recordData.slice(0, 7).filter(d => d.srpe).length > 0
                         ? (recordData.slice(0, 7).filter(d => d.srpe).reduce((sum, d) => sum + (d.srpe || 0), 0) / 
                            recordData.slice(0, 7).filter(d => d.srpe).length).toFixed(0)
                         : '0'}
                     </p>
                   </div>
-                  <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
-                    <p className="text-sm text-keio-blue mb-1">平均ACWR</p>
-                    <p className="text-2xl font-bold text-keio-blue">
+                  <div className="p-3 sm:p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
+                    <p className="text-xs sm:text-sm text-keio-blue mb-1">平均ACWR</p>
+                    <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                       {recordData.slice(0, 7).filter(d => d.acwr).length > 0
                         ? (recordData.slice(0, 7).filter(d => d.acwr).reduce((sum, d) => sum + (d.acwr || 0), 0) / 
                            recordData.slice(0, 7).filter(d => d.acwr).length).toFixed(2)
@@ -478,24 +478,27 @@ export default function AthletePage() {
                   </div>
                 </div>
               ) : (
-                <p className="text-keio-blue text-center py-4">データがまだありません</p>
+                <p className="text-sm sm:text-base text-keio-blue text-center py-4">データがまだありません</p>
               )}
             </div>
 
             {/* グラフ */}
             {chartData.length > 0 && (
-              <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-                <h2 className="text-xl font-bold text-keio-blue mb-4">
+              <div className="bg-white rounded-lg p-3 sm:p-6 border-2 border-keio-blue">
+                <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
                   ワークロード推移
                 </h2>
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={250}>
                   <ComposedChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                     
                     <XAxis 
                       dataKey="dateFormatted" 
                       stroke="#0E1546"
-                      style={{ fontSize: '12px' }}
+                      style={{ fontSize: '10px' }}
+                      angle={-45}
+                      textAnchor="end"
+                      height={60}
                     />
                     
                     <YAxis 
@@ -573,42 +576,42 @@ export default function AthletePage() {
             )}
 
             {/* 詳細データテーブル */}
-            <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
-              <h2 className="text-xl font-bold text-keio-blue mb-4">
+            <div className="bg-white rounded-lg p-3 sm:p-6 border-2 border-keio-blue">
+              <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
                 詳細データ（直近14日）
               </h2>
               {recordData.length > 0 ? (
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
+                <div className="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0">
+                  <table className="w-full text-xs sm:text-sm">
                     <thead>
                       <tr className="border-b-2 border-keio-blue">
-                        <th className="text-left p-2 text-keio-blue">日付</th>
-                        <th className="text-right p-2 text-keio-blue">体重</th>
-                        <th className="text-right p-2 text-keio-blue">睡眠</th>
-                        <th className="text-right p-2 text-keio-blue">体調</th>
-                        <th className="text-right p-2 text-keio-blue">sRPE</th>
-                        <th className="text-right p-2 text-keio-blue">ACWR</th>
+                        <th className="text-left p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">日付</th>
+                        <th className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">体重</th>
+                        <th className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">睡眠</th>
+                        <th className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">体調</th>
+                        <th className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">sRPE</th>
+                        <th className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">ACWR</th>
                       </tr>
                     </thead>
                     <tbody>
                       {recordData.slice(0, 14).map((log) => (
                         <tr key={log.id} className="border-b border-keio-blue">
-                          <td className="p-2 text-keio-blue">
-                            {new Date(log.date).toLocaleDateString('ja-JP')}
+                          <td className="p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">
+                            {new Date(log.date).toLocaleDateString('ja-JP', { month: 'numeric', day: 'numeric' })}
                           </td>
-                          <td className="text-right p-2 text-keio-blue">
-                            {log.weight ? `${log.weight} kg` : '-'}
+                          <td className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">
+                            {log.weight ? `${log.weight}kg` : '-'}
                           </td>
-                          <td className="text-right p-2 text-keio-blue">
-                            {log.sleep_hours ? `${log.sleep_hours} h` : '-'}
+                          <td className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">
+                            {log.sleep_hours ? `${log.sleep_hours}h` : '-'}
                           </td>
-                          <td className="text-right p-2 text-keio-blue">
+                          <td className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">
                             {log.pre_condition_vas !== null ? log.pre_condition_vas : '-'}
                           </td>
-                          <td className="text-right p-2 text-keio-blue">
+                          <td className="text-right p-1.5 sm:p-2 text-keio-blue whitespace-nowrap">
                             {log.srpe ? log.srpe.toFixed(0) : '-'}
                           </td>
-                          <td className={`text-right p-2 font-semibold ${
+                          <td className={`text-right p-1.5 sm:p-2 font-semibold whitespace-nowrap ${
                             log.acwr && (log.acwr < 0.8 || log.acwr > 1.3)
                               ? 'text-keio-red'
                               : 'text-keio-blue'
@@ -621,12 +624,12 @@ export default function AthletePage() {
                   </table>
                 </div>
               ) : (
-                <p className="text-keio-blue text-center py-4">データがまだありません</p>
+                <p className="text-sm sm:text-base text-keio-blue text-center py-4">データがまだありません</p>
               )}
             </div>
 
             {/* 参考情報 */}
-            <div className="bg-white rounded-lg p-4 border-2 border-keio-blue">
+            <div className="bg-white rounded-lg p-3 sm:p-4 border-2 border-keio-blue">
               <h3 className="font-semibold text-keio-blue mb-2">ACWRリスク範囲</h3>
               <ul className="text-sm text-keio-blue space-y-1">
                 <li>• <span className="font-medium">0.8～1.3</span>: 安全範囲</li>

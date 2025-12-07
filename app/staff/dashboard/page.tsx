@@ -122,48 +122,48 @@ export default function StaffDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-keio-blue p-4">
+    <div className="min-h-screen bg-keio-blue p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* ヘッダー */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-4 border-keio-blue">
-          <div className="flex justify-between items-center">
+        <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 sm:border-4 border-keio-blue">
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
             <div>
-              <h1 className="text-3xl font-bold text-keio-blue mb-2">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-keio-blue mb-1 sm:mb-2">
                 スタッフダッシュボード
               </h1>
-              <p className="text-keio-blue">チームのワークロード管理</p>
+              <p className="text-sm sm:text-base text-keio-blue">チームのワークロード管理</p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-2">
               <Link
                 href="/staff/manage"
-                className="bg-keio-blue hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-blue hover:bg-blue-800 active:bg-blue-900 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm"
               >
                 データ管理
               </Link>
               <Link
                 href="/staff/pain-analysis"
-                className="bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-gold hover:bg-yellow-500 active:bg-yellow-600 text-keio-blue font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm whitespace-nowrap"
               >
-                不調部位分析
+                不調部位
               </Link>
               <Link
                 href="/staff/team-analysis"
-                className="bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-gold hover:bg-yellow-600 active:bg-yellow-700 text-keio-blue font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm whitespace-nowrap"
               >
                 チーム分析
               </Link>
               <Link
                 href="/"
-                className="bg-keio-red hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-red hover:bg-red-700 active:bg-red-800 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm"
               >
-                ホームへ
+                ホーム
               </Link>
             </div>
           </div>
         </div>
 
         {/* 選手選択 */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
+        <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 border-keio-blue">
           <label className="block text-sm font-medium text-keio-blue mb-2">
             表示データを選択
           </label>
@@ -183,11 +183,11 @@ export default function StaffDashboard() {
 
         {/* 選手情報カード */}
         {selectedPlayerId === 'team-average' ? (
-          <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
-            <h2 className="text-xl font-bold text-keio-blue mb-4">
+          <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 border-keio-blue">
+            <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
               チーム全体の情報
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
               <div>
                 <p className="text-sm text-keio-blue">選手数</p>
                 <p className="text-lg font-semibold text-keio-blue">
@@ -209,11 +209,11 @@ export default function StaffDashboard() {
             </div>
           </div>
         ) : selectedPlayer && (
-          <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
-            <h2 className="text-xl font-bold text-keio-blue mb-4">
+          <div className="bg-white rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 border-2 border-keio-blue">
+            <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
               {selectedPlayer.name} の情報
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
               <div>
                 <p className="text-sm text-keio-blue">ポジション</p>
                 <p className="text-lg font-semibold text-keio-blue">
@@ -249,35 +249,35 @@ export default function StaffDashboard() {
 
         {/* 統計情報 */}
         {chartData.length > 0 && (
-          <div className="bg-white rounded-lg p-6 mt-4 border-2 border-keio-blue">
-            <h2 className="text-xl font-bold text-keio-blue mb-4">
+          <div className="bg-white rounded-lg p-4 sm:p-6 mt-3 sm:mt-4 border-2 border-keio-blue">
+            <h2 className="text-lg sm:text-xl font-bold text-keio-blue mb-3 sm:mb-4">
               直近7日間の統計
               {selectedPlayerId === 'team-average' && (
-                <span className="text-sm font-normal ml-2">(チーム平均)</span>
+                <span className="text-xs sm:text-sm font-normal ml-2">(チーム平均)</span>
               )}
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
-                <p className="text-sm text-keio-blue mb-1">平均sRPE</p>
-                <p className="text-2xl font-bold text-keio-blue">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
+              <div className="p-3 sm:p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
+                <p className="text-xs sm:text-sm text-keio-blue mb-1">平均sRPE</p>
+                <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                   {(chartData.slice(-7).reduce((sum, d) => sum + d.srpe, 0) / Math.min(7, chartData.length)).toFixed(0)}
                 </p>
               </div>
-              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
-                <p className="text-sm text-keio-blue mb-1">平均ACWR</p>
-                <p className="text-2xl font-bold text-keio-blue">
+              <div className="p-3 sm:p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
+                <p className="text-xs sm:text-sm text-keio-blue mb-1">平均ACWR</p>
+                <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                   {(chartData.slice(-7).reduce((sum, d) => sum + d.acwr, 0) / Math.min(7, chartData.length)).toFixed(2)}
                 </p>
               </div>
-              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
-                <p className="text-sm text-keio-blue mb-1">最大sRPE</p>
-                <p className="text-2xl font-bold text-keio-blue">
+              <div className="p-3 sm:p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
+                <p className="text-xs sm:text-sm text-keio-blue mb-1">最大sRPE</p>
+                <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                   {Math.max(...chartData.slice(-7).map(d => d.srpe)).toFixed(0)}
                 </p>
               </div>
-              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
-                <p className="text-sm text-keio-blue mb-1">最大ACWR</p>
-                <p className="text-2xl font-bold text-keio-blue">
+              <div className="p-3 sm:p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
+                <p className="text-xs sm:text-sm text-keio-blue mb-1">最大ACWR</p>
+                <p className="text-lg sm:text-2xl font-bold text-keio-blue">
                   {Math.max(...chartData.slice(-7).map(d => d.acwr)).toFixed(2)}
                 </p>
               </div>
