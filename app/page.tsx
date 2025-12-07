@@ -31,12 +31,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-navy-dark flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
-        <h1 className="text-3xl font-bold text-navy-dark mb-2 text-center">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full border-2 border-gray-200">
+        <h1 className="text-3xl font-bold text-keio-blue mb-2 text-center">
           KEIO HANDBALL
         </h1>
-        <h2 className="text-xl text-gray-600 mb-8 text-center">
+        <h2 className="text-xl text-keio-blue mb-8 text-center">
           Work Load Checker
         </h2>
 
@@ -45,19 +45,19 @@ export default function Home() {
         ) : (
           <div className="grid md:grid-cols-2 gap-6">
             {/* 選手用セクション */}
-            <div className="bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
-              <h3 className="text-lg font-semibold text-navy-dark mb-4 text-center">
+            <div className="bg-gray-50 p-6 rounded-lg border-2 border-keio-blue">
+              <h3 className="text-lg font-semibold text-keio-blue mb-4 text-center">
                 選手用
               </h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-keio-blue mb-2">
                     選手を選択してください
                   </label>
                   <select
                     value={selectedPlayerId}
                     onChange={(e) => setSelectedPlayerId(e.target.value)}
-                    className="w-full p-3 text-base border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-accent text-gray-900"
+                    className="w-full p-3 text-base border-2 border-keio-blue rounded-lg focus:outline-none focus:border-keio-gold text-keio-blue"
                   >
                     <option value="">選手を選択...</option>
                     {players.map((player) => (
@@ -71,7 +71,7 @@ export default function Home() {
                 {selectedPlayerId && (
                   <Link
                     href={`/athlete/${selectedPlayerId}`}
-                    className="block w-full bg-purple-accent hover:bg-purple-deep text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
+                    className="block w-full bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-4 px-6 rounded-lg text-center transition-colors"
                   >
                     データ入力
                   </Link>
@@ -80,13 +80,13 @@ export default function Home() {
             </div>
 
             {/* スタッフ用セクション */}
-            <div className="bg-gray-50 p-6 rounded-lg border-2 border-gray-200 flex flex-col justify-center">
-              <h3 className="text-lg font-semibold text-navy-dark mb-4 text-center">
+            <div className="bg-gray-50 p-6 rounded-lg border-2 border-keio-blue flex flex-col justify-center">
+              <h3 className="text-lg font-semibold text-keio-blue mb-4 text-center">
                 スタッフ用
               </h3>
               <Link
                 href="/staff/login"
-                className="block w-full bg-navy-dark hover:bg-gray-800 text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
+                className="block w-full bg-keio-blue hover:bg-blue-900 text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
               >
                 スタッフログイン
               </Link>

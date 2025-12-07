@@ -23,35 +23,35 @@ export default function StaffLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-navy-dark flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
-        <h1 className="text-2xl font-bold text-navy-dark mb-6 text-center">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full border-2 border-keio-blue">
+        <h1 className="text-2xl font-bold text-keio-blue mb-6 text-center">
           スタッフログイン
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-keio-blue mb-2">
               パスワード
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-accent text-gray-900"
+              className="w-full p-3 border-2 border-keio-blue rounded-lg focus:outline-none focus:border-keio-gold text-keio-blue"
               placeholder="パスワードを入力"
             />
           </div>
 
           {error && (
-            <div className="p-3 bg-red-100 text-red-800 rounded-lg text-sm">
+            <div className="p-3 bg-red-100 border-2 border-keio-red text-keio-red rounded-lg text-sm">
               {error}
             </div>
           )}
 
           <button
             type="submit"
-            className="w-full bg-purple-accent hover:bg-purple-deep text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-keio-blue hover:bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             ログイン
           </button>
@@ -59,13 +59,13 @@ export default function StaffLogin() {
           <button
             type="button"
             onClick={() => router.push('/')}
-            className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-gray-200 hover:bg-keio-gold text-keio-blue font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             戻る
           </button>
         </form>
 
-        <p className="mt-4 text-xs text-gray-500 text-center">
+        <p className="mt-4 text-xs text-keio-blue text-center">
           デモ用パスワード: KEIOHANDBALL
         </p>
       </div>
