@@ -143,29 +143,29 @@ export default function TeamAnalysisPage() {
       <div className="max-w-7xl mx-auto">
         {/* ヘッダー */}
         <div className="bg-white rounded-lg p-6 mb-4 border-4 border-keio-blue">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4">
             <div>
               <h1 className="text-3xl font-bold text-keio-blue mb-2">
                 チーム分析
               </h1>
               <p className="text-keio-blue">各選手の平均データとチーム全体のワークロード推移</p>
             </div>
-            <div className="flex gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Link
                 href="/staff/pain-analysis"
-                className="bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors text-center min-h-[60px] flex items-center justify-center shadow-md"
               >
                 不調部位分析
               </Link>
               <Link
                 href="/staff/dashboard"
-                className="bg-keio-blue hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-blue hover:bg-blue-900 text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center min-h-[60px] flex items-center justify-center shadow-md"
               >
                 ダッシュボード
               </Link>
               <Link
                 href="/"
-                className="bg-keio-red hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                className="bg-keio-red hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center min-h-[60px] flex items-center justify-center shadow-md"
               >
                 ホームへ
               </Link>
