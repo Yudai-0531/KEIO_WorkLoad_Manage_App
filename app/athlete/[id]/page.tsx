@@ -3,11 +3,9 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { Player, DailyLog } from '@/types'
+import { Player, DailyLog, PainArea } from '@/types'
 import { calculateSRPE, calculateACWR } from '@/lib/calculations'
 import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts'
-
-const PAIN_AREAS = ['なし', '右肩', '左肩', '右肘', '左肘', '右膝', '左膝', '腰', '右足首', '左足首', 'その他']
 
 export default function AthletePage() {
   const params = useParams()
@@ -15,6 +13,7 @@ export default function AthletePage() {
   const playerId = params.id as string
 
   const [player, setPlayer] = useState<Player | null>(null)
+  const [painAreas, setPainAreas] = useState<PainArea[]>([])
   const [activeTab, setActiveTab] = useState<'pre' | 'post' | 'record'>('pre')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -34,6 +33,7 @@ export default function AthletePage() {
 
   useEffect(() => {
     fetchPlayer()
+    fetchPainAreas()
     fetchRecordData()
   }, [playerId])
 
@@ -51,6 +51,26 @@ export default function AthletePage() {
       console.error('選手データの取得エラー:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  async function fetchPainAreas() {
+    try {
+      const { data, error } = await supabase
+        .from('pain_areas')
+        .select('*')
+        .order('display_order')
+
+      if (error) throw error
+      setPainAreas(data || [])
+      
+      // 最初の不調部位をデフォルトに設定（通常は「なし」）
+      if (data && data.length > 0) {
+        setPrePainArea(data[0].name)
+        setPostPainArea(data[0].name)
+      }
+    } catch (error) {
+      console.error('不調部位データの取得エラー:', error)
     }
   }
 
@@ -335,9 +355,9 @@ export default function AthletePage() {
                 onChange={(e) => setPrePainArea(e.target.value)}
                 className="w-full p-3 border-2 border-keio-blue rounded-lg text-keio-blue"
               >
-                {PAIN_AREAS.map((area) => (
-                  <option key={area} value={area}>
-                    {area}
+                {painAreas.map((area) => (
+                  <option key={area.id} value={area.name}>
+                    {area.name}
                   </option>
                 ))}
               </select>
@@ -396,9 +416,9 @@ export default function AthletePage() {
                 onChange={(e) => setPostPainArea(e.target.value)}
                 className="w-full p-3 border-2 border-keio-blue rounded-lg text-keio-blue"
               >
-                {PAIN_AREAS.map((area) => (
-                  <option key={area} value={area}>
-                    {area}
+                {painAreas.map((area) => (
+                  <option key={area.id} value={area.name}>
+                    {area.name}
                   </option>
                 ))}
               </select>
