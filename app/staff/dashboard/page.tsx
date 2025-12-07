@@ -79,10 +79,10 @@ export default function StaffDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-white p-4">
+    <div className="min-h-screen bg-keio-blue p-4">
       <div className="max-w-6xl mx-auto">
         {/* ヘッダー */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
+        <div className="bg-white rounded-lg p-6 mb-4 border-4 border-keio-blue">
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-keio-blue mb-2">
@@ -92,7 +92,7 @@ export default function StaffDashboard() {
             </div>
             <Link
               href="/"
-              className="bg-keio-blue hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              className="bg-keio-blue hover:bg-keio-red text-white font-semibold py-2 px-6 rounded-lg transition-colors"
             >
               ホームへ
             </Link>
@@ -164,25 +164,25 @@ export default function StaffDashboard() {
               直近7日間の統計
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
                 <p className="text-sm text-keio-blue mb-1">平均sRPE</p>
                 <p className="text-2xl font-bold text-keio-blue">
                   {(chartData.slice(0, 7).reduce((sum, d) => sum + d.srpe, 0) / Math.min(7, chartData.length)).toFixed(0)}
                 </p>
               </div>
-              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
                 <p className="text-sm text-keio-blue mb-1">平均ACWR</p>
                 <p className="text-2xl font-bold text-keio-blue">
                   {(chartData.slice(0, 7).reduce((sum, d) => sum + d.acwr, 0) / Math.min(7, chartData.length)).toFixed(2)}
                 </p>
               </div>
-              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
                 <p className="text-sm text-keio-blue mb-1">最大sRPE</p>
                 <p className="text-2xl font-bold text-keio-blue">
                   {Math.max(...chartData.slice(0, 7).map(d => d.srpe))}
                 </p>
               </div>
-              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+              <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
                 <p className="text-sm text-keio-blue mb-1">最大ACWR</p>
                 <p className="text-2xl font-bold text-keio-blue">
                   {Math.max(...chartData.slice(0, 7).map(d => d.acwr)).toFixed(2)}

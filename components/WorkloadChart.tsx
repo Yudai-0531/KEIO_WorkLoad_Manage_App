@@ -40,8 +40,8 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
                 key={item.date}
                 className={`flex items-center gap-2 p-3 rounded-lg border-2 ${
                   riskLevel === 'danger'
-                    ? 'bg-red-50 text-keio-red border-keio-red'
-                    : 'bg-yellow-50 text-keio-blue border-keio-gold'
+                    ? 'bg-white text-keio-red border-keio-red'
+                    : 'bg-keio-gold text-keio-blue border-keio-blue'
                 }`}
               >
                 {riskLevel === 'danger' ? (
@@ -150,7 +150,7 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
       </ResponsiveContainer>
 
       {/* 参考情報 */}
-      <div className="mt-4 p-4 bg-gray-50 rounded-lg border-2 border-keio-blue">
+      <div className="mt-4 p-4 bg-white rounded-lg border-2 border-keio-blue">
         <h3 className="font-semibold text-keio-blue mb-2">ACWRリスク範囲</h3>
         <ul className="text-sm text-keio-blue space-y-1">
           <li>• <span className="font-medium">0.8～1.3</span>: 安全範囲</li>
