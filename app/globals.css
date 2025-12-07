@@ -47,3 +47,33 @@ select {
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
 }
+
+/* スマートフォン向けの最適化 */
+@media (max-width: 640px) {
+  /* タッチ操作しやすいように最小タップ領域を確保 */
+  button, 
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+  }
+
+  /* 横スクロールを防止 */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* テーブルのフォントサイズ調整 */
+  table {
+    font-size: 0.875rem;
+  }
+}
+
+/* タブレット向けの最適化 */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* タブレットサイズのレイアウト最適化 */
+  .max-w-6xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
