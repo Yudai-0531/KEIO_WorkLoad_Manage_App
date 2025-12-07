@@ -9,7 +9,7 @@ export default function StaffLogin() {
   const [error, setError] = useState('')
 
   // 簡易認証（本番環境ではSupabase Authを使用）
-  const STAFF_PASSWORD = 'keiohandball2024'
+  const STAFF_PASSWORD = 'KEIOHANDBALL'
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -66,7 +66,7 @@ export default function StaffLogin() {
         </form>
 
         <p className="mt-4 text-xs text-gray-500 text-center">
-          デモ用パスワード: keiohandball2024
+          デモ用パスワード: KEIOHANDBALL
         </p>
       </div>
     </div>
