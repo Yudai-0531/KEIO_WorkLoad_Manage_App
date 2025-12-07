@@ -234,14 +234,14 @@ export default function AthletePage() {
 
         {/* 日付選択 */}
         <div className="bg-white rounded-lg p-2 sm:p-3 mb-3 sm:mb-4 border-2 border-keio-blue">
-          <label className="block text-sm font-medium text-keio-blue mb-2 px-2">
+          <label className="block text-xs sm:text-sm font-medium text-keio-blue mb-1.5 sm:mb-2 px-1">
             日付
           </label>
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full p-3 border-2 border-keio-blue rounded-lg text-keio-blue text-base bg-white"
+            className="w-full py-2 sm:py-3 px-3 sm:px-4 border-2 border-keio-blue rounded-lg text-keio-blue text-sm sm:text-base bg-white focus:outline-none focus:ring-2 focus:ring-keio-gold"
           />
         </div>
 
