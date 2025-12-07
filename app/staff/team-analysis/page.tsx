@@ -152,6 +152,12 @@ export default function TeamAnalysisPage() {
             </div>
             <div className="flex gap-4">
               <Link
+                href="/staff/pain-analysis"
+                className="bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-2 px-6 rounded-lg transition-colors"
+              >
+                不調部位分析
+              </Link>
+              <Link
                 href="/staff/dashboard"
                 className="bg-keio-blue hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
               >
