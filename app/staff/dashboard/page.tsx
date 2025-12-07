@@ -135,6 +135,12 @@ export default function StaffDashboard() {
             </div>
             <div className="flex gap-4">
               <Link
+                href="/staff/manage"
+                className="bg-keio-blue hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              >
+                データ管理
+              </Link>
+              <Link
                 href="/staff/pain-analysis"
                 className="bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-2 px-6 rounded-lg transition-colors"
               >

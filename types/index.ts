@@ -6,6 +6,13 @@ export interface Player {
   created_at: string
 }
 
+export interface PainArea {
+  id: string
+  name: string
+  display_order: number
+  created_at: string
+}
+
 export interface DailyLog {
   id: string
   player_id: string
