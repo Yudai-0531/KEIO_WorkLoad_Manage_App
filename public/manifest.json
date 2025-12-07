@@ -1,6 +1,6 @@
 {
-  "name": "KEIO HANDBALL Work Load Checker",
-  "short_name": "KEIO HB",
+  "name": "KEIO WLM",
+  "short_name": "KEIO WLM",
   "description": "ハンドボールチーム向けコンディション・負荷管理アプリ",
   "start_url": "/",
   "display": "standalone",
