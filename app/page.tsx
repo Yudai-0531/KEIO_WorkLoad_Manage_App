@@ -33,10 +33,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-keio-blue flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full border-4 border-keio-blue">
-        <h1 className="text-3xl font-bold text-keio-blue mb-2 text-center">
+        <h1 className="text-3xl font-bold text-keio-gold mb-2 text-center">
           KEIO HANDBALL
         </h1>
-        <h2 className="text-xl text-keio-blue mb-8 text-center">
+        <h2 className="text-xl text-keio-red mb-8 text-center">
           Work Load Checker
         </h2>
 
@@ -71,7 +71,7 @@ export default function Home() {
                 {selectedPlayerId && (
                   <Link
                     href={`/athlete/${selectedPlayerId}`}
-                    className="block w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-4 px-6 rounded-lg text-center transition-colors"
+                    className="block w-full bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-4 px-6 rounded-lg text-center transition-colors"
                   >
                     データ入力
                   </Link>
@@ -86,7 +86,7 @@ export default function Home() {
               </h3>
               <Link
                 href="/staff/login"
-                className="block w-full bg-keio-blue hover:bg-keio-red text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
+                className="block w-full bg-keio-red hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
               >
                 スタッフログイン
               </Link>

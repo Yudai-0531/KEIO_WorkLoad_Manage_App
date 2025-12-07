@@ -346,7 +346,7 @@ export default function AthletePage() {
             <button
               onClick={handleSubmitPre}
               disabled={saving}
-              className="w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               {saving ? '保存中...' : 'プレー前データを保存'}
             </button>
@@ -407,7 +407,7 @@ export default function AthletePage() {
             <button
               onClick={handleSubmitPost}
               disabled={saving}
-              className="w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-keio-gold hover:bg-yellow-600 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               {saving ? '保存中...' : 'プレー後データを保存'}
             </button>
