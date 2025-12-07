@@ -196,10 +196,10 @@ export default function AthletePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white p-4">
+    <div className="min-h-screen bg-keio-blue p-4">
       <div className="max-w-2xl mx-auto">
         {/* ヘッダー */}
-        <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
+        <div className="bg-white rounded-lg p-6 mb-4 border-4 border-keio-blue">
           <button
             onClick={() => router.push('/')}
             className="text-keio-blue hover:text-keio-gold mb-4 font-semibold"
@@ -232,7 +232,7 @@ export default function AthletePage() {
             className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
               activeTab === 'pre'
                 ? 'bg-keio-blue text-white'
-                : 'bg-gray-200 text-keio-blue hover:bg-keio-gold'
+                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
             プレー前入力
@@ -242,7 +242,7 @@ export default function AthletePage() {
             className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
               activeTab === 'post'
                 ? 'bg-keio-blue text-white'
-                : 'bg-gray-200 text-keio-blue hover:bg-keio-gold'
+                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
             プレー後入力
@@ -252,7 +252,7 @@ export default function AthletePage() {
             className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-colors ${
               activeTab === 'record'
                 ? 'bg-keio-blue text-white'
-                : 'bg-gray-200 text-keio-blue hover:bg-keio-gold'
+                : 'bg-white text-keio-blue hover:bg-keio-gold border-2 border-keio-blue'
             }`}
           >
             記録
@@ -346,7 +346,7 @@ export default function AthletePage() {
             <button
               onClick={handleSubmitPre}
               disabled={saving}
-              className="w-full bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               {saving ? '保存中...' : 'プレー前データを保存'}
             </button>
@@ -407,7 +407,7 @@ export default function AthletePage() {
             <button
               onClick={handleSubmitPost}
               disabled={saving}
-              className="w-full bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               {saving ? '保存中...' : 'プレー後データを保存'}
             </button>
@@ -424,21 +424,21 @@ export default function AthletePage() {
               </h2>
               {recordData.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-4 bg-blue-50 rounded-lg border border-keio-blue">
+                  <div className="p-4 bg-white rounded-lg border-2 border-keio-blue">
                     <p className="text-sm text-keio-blue mb-1">平均体重</p>
                     <p className="text-2xl font-bold text-keio-blue">
                       {(recordData.slice(0, 7).filter(d => d.weight).reduce((sum, d) => sum + (d.weight || 0), 0) / 
                         Math.max(1, recordData.slice(0, 7).filter(d => d.weight).length)).toFixed(1)} kg
                     </p>
                   </div>
-                  <div className="p-4 bg-blue-50 rounded-lg border border-keio-blue">
+                  <div className="p-4 bg-white rounded-lg border-2 border-keio-blue">
                     <p className="text-sm text-keio-blue mb-1">平均睡眠時間</p>
                     <p className="text-2xl font-bold text-keio-blue">
                       {(recordData.slice(0, 7).filter(d => d.sleep_hours).reduce((sum, d) => sum + (d.sleep_hours || 0), 0) / 
                         Math.max(1, recordData.slice(0, 7).filter(d => d.sleep_hours).length)).toFixed(1)} h
                     </p>
                   </div>
-                  <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+                  <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
                     <p className="text-sm text-keio-blue mb-1">平均sRPE</p>
                     <p className="text-2xl font-bold text-keio-blue">
                       {recordData.slice(0, 7).filter(d => d.srpe).length > 0
@@ -447,7 +447,7 @@ export default function AthletePage() {
                         : '0'}
                     </p>
                   </div>
-                  <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+                  <div className="p-4 bg-keio-gold rounded-lg border-2 border-keio-blue">
                     <p className="text-sm text-keio-blue mb-1">平均ACWR</p>
                     <p className="text-2xl font-bold text-keio-blue">
                       {recordData.slice(0, 7).filter(d => d.acwr).length > 0
@@ -572,7 +572,7 @@ export default function AthletePage() {
                     </thead>
                     <tbody>
                       {recordData.slice(0, 14).map((log) => (
-                        <tr key={log.id} className="border-b border-gray-200">
+                        <tr key={log.id} className="border-b border-keio-blue">
                           <td className="p-2 text-keio-blue">
                             {new Date(log.date).toLocaleDateString('ja-JP')}
                           </td>
@@ -606,7 +606,7 @@ export default function AthletePage() {
             </div>
 
             {/* 参考情報 */}
-            <div className="bg-gray-50 rounded-lg p-4 border-2 border-keio-blue">
+            <div className="bg-white rounded-lg p-4 border-2 border-keio-blue">
               <h3 className="font-semibold text-keio-blue mb-2">ACWRリスク範囲</h3>
               <ul className="text-sm text-keio-blue space-y-1">
                 <li>• <span className="font-medium">0.8～1.3</span>: 安全範囲</li>

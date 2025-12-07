@@ -31,8 +31,8 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full border-2 border-gray-200">
+    <div className="min-h-screen bg-keio-blue flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full border-4 border-keio-blue">
         <h1 className="text-3xl font-bold text-keio-blue mb-2 text-center">
           KEIO HANDBALL
         </h1>
@@ -41,11 +41,11 @@ export default function Home() {
         </h2>
 
         {loading ? (
-          <div className="text-center text-gray-500">読み込み中...</div>
+          <div className="text-center text-keio-blue">読み込み中...</div>
         ) : (
           <div className="grid md:grid-cols-2 gap-6">
             {/* 選手用セクション */}
-            <div className="bg-gray-50 p-6 rounded-lg border-2 border-keio-blue">
+            <div className="bg-white p-6 rounded-lg border-2 border-keio-blue">
               <h3 className="text-lg font-semibold text-keio-blue mb-4 text-center">
                 選手用
               </h3>
@@ -57,7 +57,7 @@ export default function Home() {
                   <select
                     value={selectedPlayerId}
                     onChange={(e) => setSelectedPlayerId(e.target.value)}
-                    className="w-full p-3 text-base border-2 border-keio-blue rounded-lg focus:outline-none focus:border-keio-gold text-keio-blue"
+                    className="w-full p-3 text-base border-2 border-keio-blue rounded-lg focus:outline-none focus:border-keio-gold text-keio-blue bg-white"
                   >
                     <option value="">選手を選択...</option>
                     {players.map((player) => (
@@ -71,7 +71,7 @@ export default function Home() {
                 {selectedPlayerId && (
                   <Link
                     href={`/athlete/${selectedPlayerId}`}
-                    className="block w-full bg-keio-gold hover:bg-yellow-500 text-keio-blue font-semibold py-4 px-6 rounded-lg text-center transition-colors"
+                    className="block w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-4 px-6 rounded-lg text-center transition-colors"
                   >
                     データ入力
                   </Link>
@@ -80,13 +80,13 @@ export default function Home() {
             </div>
 
             {/* スタッフ用セクション */}
-            <div className="bg-gray-50 p-6 rounded-lg border-2 border-keio-blue flex flex-col justify-center">
+            <div className="bg-white p-6 rounded-lg border-2 border-keio-blue flex flex-col justify-center">
               <h3 className="text-lg font-semibold text-keio-blue mb-4 text-center">
                 スタッフ用
               </h3>
               <Link
                 href="/staff/login"
-                className="block w-full bg-keio-blue hover:bg-blue-900 text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
+                className="block w-full bg-keio-blue hover:bg-keio-red text-white font-semibold py-4 px-6 rounded-lg text-center transition-colors"
               >
                 スタッフログイン
               </Link>

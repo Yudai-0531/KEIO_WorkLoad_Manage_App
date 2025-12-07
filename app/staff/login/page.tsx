@@ -23,8 +23,8 @@ export default function StaffLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full border-2 border-keio-blue">
+    <div className="min-h-screen bg-keio-blue flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full border-4 border-keio-blue">
         <h1 className="text-2xl font-bold text-keio-blue mb-6 text-center">
           スタッフログイン
         </h1>
@@ -38,7 +38,7 @@ export default function StaffLogin() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 border-2 border-keio-blue rounded-lg focus:outline-none focus:border-keio-gold text-keio-blue"
+              className="w-full p-3 border-2 border-keio-blue rounded-lg focus:outline-none focus:border-keio-gold text-keio-blue bg-white"
               placeholder="パスワードを入力"
             />
           </div>
@@ -51,7 +51,7 @@ export default function StaffLogin() {
 
           <button
             type="submit"
-            className="w-full bg-keio-blue hover:bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-keio-blue hover:bg-keio-red text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             ログイン
           </button>
@@ -59,7 +59,7 @@ export default function StaffLogin() {
           <button
             type="button"
             onClick={() => router.push('/')}
-            className="w-full bg-gray-200 hover:bg-keio-gold text-keio-blue font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-keio-gold hover:bg-keio-red hover:text-white text-keio-blue font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             戻る
           </button>
