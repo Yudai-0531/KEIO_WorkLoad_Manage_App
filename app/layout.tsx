@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'KEIO HB',
+    title: 'KEIO WLM',
   },
 }
 
