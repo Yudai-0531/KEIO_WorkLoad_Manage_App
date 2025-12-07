@@ -72,27 +72,27 @@ export default function StaffDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-navy-dark flex items-center justify-center">
-        <div className="text-white text-xl">読み込み中...</div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-keio-blue text-xl">読み込み中...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-navy-dark p-4">
+    <div className="min-h-screen bg-white p-4">
       <div className="max-w-6xl mx-auto">
         {/* ヘッダー */}
-        <div className="bg-white rounded-lg p-6 mb-4">
+        <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-navy-dark mb-2">
+              <h1 className="text-3xl font-bold text-keio-blue mb-2">
                 スタッフダッシュボード
               </h1>
-              <p className="text-gray-600">チームのワークロード管理</p>
+              <p className="text-keio-blue">チームのワークロード管理</p>
             </div>
             <Link
               href="/"
-              className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              className="bg-keio-blue hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
             >
               ホームへ
             </Link>
@@ -100,14 +100,14 @@ export default function StaffDashboard() {
         </div>
 
         {/* 選手選択 */}
-        <div className="bg-white rounded-lg p-6 mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+        <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
+          <label className="block text-sm font-medium text-keio-blue mb-2">
             選手を選択
           </label>
           <select
             value={selectedPlayerId}
             onChange={(e) => setSelectedPlayerId(e.target.value)}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-900"
+            className="w-full p-3 border-2 border-keio-blue rounded-lg text-keio-blue"
           >
             {players.map((player) => (
               <option key={player.id} value={player.id}>
@@ -119,26 +119,26 @@ export default function StaffDashboard() {
 
         {/* 選手情報カード */}
         {selectedPlayer && (
-          <div className="bg-white rounded-lg p-6 mb-4">
-            <h2 className="text-xl font-bold text-navy-dark mb-4">
+          <div className="bg-white rounded-lg p-6 mb-4 border-2 border-keio-blue">
+            <h2 className="text-xl font-bold text-keio-blue mb-4">
               {selectedPlayer.name} の情報
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div>
-                <p className="text-sm text-gray-600">ポジション</p>
-                <p className="text-lg font-semibold text-gray-900">
+                <p className="text-sm text-keio-blue">ポジション</p>
+                <p className="text-lg font-semibold text-keio-blue">
                   {selectedPlayer.position}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-gray-600">目標体重</p>
-                <p className="text-lg font-semibold text-gray-900">
+                <p className="text-sm text-keio-blue">目標体重</p>
+                <p className="text-lg font-semibold text-keio-blue">
                   {selectedPlayer.goal_weight} kg
                 </p>
               </div>
               <div>
-                <p className="text-sm text-gray-600">データ件数</p>
-                <p className="text-lg font-semibold text-gray-900">
+                <p className="text-sm text-keio-blue">データ件数</p>
+                <p className="text-lg font-semibold text-keio-blue">
                   {chartData.length} 日分
                 </p>
               </div>
@@ -150,8 +150,8 @@ export default function StaffDashboard() {
         {chartData.length > 0 ? (
           <WorkloadChart data={chartData} />
         ) : (
-          <div className="bg-white rounded-lg p-12 text-center">
-            <p className="text-gray-600">
+          <div className="bg-white rounded-lg p-12 text-center border-2 border-keio-blue">
+            <p className="text-keio-blue">
               この選手のデータがまだありません
             </p>
           </div>
@@ -159,32 +159,32 @@ export default function StaffDashboard() {
 
         {/* 統計情報 */}
         {chartData.length > 0 && (
-          <div className="bg-white rounded-lg p-6 mt-4">
-            <h2 className="text-xl font-bold text-navy-dark mb-4">
+          <div className="bg-white rounded-lg p-6 mt-4 border-2 border-keio-blue">
+            <h2 className="text-xl font-bold text-keio-blue mb-4">
               直近7日間の統計
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-purple-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">平均sRPE</p>
-                <p className="text-2xl font-bold text-purple-accent">
+              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+                <p className="text-sm text-keio-blue mb-1">平均sRPE</p>
+                <p className="text-2xl font-bold text-keio-blue">
                   {(chartData.slice(0, 7).reduce((sum, d) => sum + d.srpe, 0) / Math.min(7, chartData.length)).toFixed(0)}
                 </p>
               </div>
-              <div className="p-4 bg-purple-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">平均ACWR</p>
-                <p className="text-2xl font-bold text-purple-accent">
+              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+                <p className="text-sm text-keio-blue mb-1">平均ACWR</p>
+                <p className="text-2xl font-bold text-keio-blue">
                   {(chartData.slice(0, 7).reduce((sum, d) => sum + d.acwr, 0) / Math.min(7, chartData.length)).toFixed(2)}
                 </p>
               </div>
-              <div className="p-4 bg-purple-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">最大sRPE</p>
-                <p className="text-2xl font-bold text-purple-accent">
+              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+                <p className="text-sm text-keio-blue mb-1">最大sRPE</p>
+                <p className="text-2xl font-bold text-keio-blue">
                   {Math.max(...chartData.slice(0, 7).map(d => d.srpe))}
                 </p>
               </div>
-              <div className="p-4 bg-purple-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">最大ACWR</p>
-                <p className="text-2xl font-bold text-purple-accent">
+              <div className="p-4 bg-yellow-50 rounded-lg border border-keio-gold">
+                <p className="text-sm text-keio-blue mb-1">最大ACWR</p>
+                <p className="text-2xl font-bold text-keio-blue">
                   {Math.max(...chartData.slice(0, 7).map(d => d.acwr)).toFixed(2)}
                 </p>
               </div>

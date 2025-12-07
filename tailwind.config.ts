@@ -9,11 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'navy-dark': '#001f3f',
-        'purple-accent': '#A020F0',
-        'purple-deep': '#9932CC',
-        'yellow-alert': '#FFD700',
-        'red-danger': '#DC143C',
+        'keio-blue': '#0E1546',
+        'keio-gold': '#FDD34C',
+        'keio-red': '#C4232D',
       },
     },
   },

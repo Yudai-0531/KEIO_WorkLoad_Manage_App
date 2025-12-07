@@ -3,16 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --navy-dark: #001f3f;
-  --purple-accent: #A020F0;
-  --purple-deep: #9932CC;
-  --yellow-alert: #FFD700;
-  --red-danger: #DC143C;
+  --keio-blue: #0E1546;
+  --keio-gold: #FDD34C;
+  --keio-red: #C4232D;
+  --white: #FFFFFF;
 }
 
 body {
-  background-color: var(--navy-dark);
-  color: white;
+  background-color: var(--white);
+  color: var(--keio-blue);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

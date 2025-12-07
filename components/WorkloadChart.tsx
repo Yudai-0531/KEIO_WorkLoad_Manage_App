@@ -25,8 +25,8 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
   }))
 
   return (
-    <div className="bg-white rounded-lg p-6">
-      <h2 className="text-2xl font-bold text-navy-dark mb-4">
+    <div className="bg-white rounded-lg p-6 border-2 border-keio-blue">
+      <h2 className="text-2xl font-bold text-keio-blue mb-4">
         ワークロード分析
       </h2>
       
@@ -38,10 +38,10 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
             return (
               <div
                 key={item.date}
-                className={`flex items-center gap-2 p-3 rounded-lg ${
+                className={`flex items-center gap-2 p-3 rounded-lg border-2 ${
                   riskLevel === 'danger'
-                    ? 'bg-red-100 text-red-800'
-                    : 'bg-yellow-100 text-yellow-800'
+                    ? 'bg-red-50 text-keio-red border-keio-red'
+                    : 'bg-yellow-50 text-keio-blue border-keio-gold'
                 }`}
               >
                 {riskLevel === 'danger' ? (
@@ -68,20 +68,20 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
           
           <XAxis 
             dataKey="dateFormatted" 
-            stroke="#333"
+            stroke="#0E1546"
             style={{ fontSize: '12px' }}
           />
           
           <YAxis 
             yAxisId="left" 
-            stroke="#333"
+            stroke="#0E1546"
             style={{ fontSize: '12px' }}
           >
             <Label 
               value="sRPE" 
               angle={-90} 
               position="insideLeft" 
-              style={{ textAnchor: 'middle', fill: '#333' }}
+              style={{ textAnchor: 'middle', fill: '#0E1546' }}
             />
           </YAxis>
           
@@ -89,21 +89,21 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
             yAxisId="right" 
             orientation="right"
             domain={[0, 2]}
-            stroke="#333"
+            stroke="#0E1546"
             style={{ fontSize: '12px' }}
           >
             <Label 
               value="ACWR" 
               angle={90} 
               position="insideRight" 
-              style={{ textAnchor: 'middle', fill: '#333' }}
+              style={{ textAnchor: 'middle', fill: '#0E1546' }}
             />
           </YAxis>
           
           <Tooltip 
             contentStyle={{ 
               backgroundColor: '#fff', 
-              border: '1px solid #ccc',
+              border: '2px solid #0E1546',
               borderRadius: '8px',
               padding: '10px'
             }}
@@ -127,11 +127,11 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
           <Bar 
             yAxisId="left" 
             dataKey="srpe" 
-            fill="#A020F0"
+            fill="#FDD34C"
             radius={[8, 8, 0, 0]}
             label={{ 
               position: 'top', 
-              fill: '#333',
+              fill: '#0E1546',
               fontSize: 10
             }}
           />
@@ -141,21 +141,21 @@ export default function WorkloadChart({ data }: WorkloadChartProps) {
             yAxisId="right" 
             type="monotone"
             dataKey="acwr" 
-            stroke="#9932CC"
+            stroke="#C4232D"
             strokeWidth={2}
-            dot={{ fill: '#9932CC', r: 4 }}
+            dot={{ fill: '#C4232D', r: 4 }}
             activeDot={{ r: 6 }}
           />
         </ComposedChart>
       </ResponsiveContainer>
 
       {/* 参考情報 */}
-      <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-        <h3 className="font-semibold text-gray-700 mb-2">ACWRリスク範囲</h3>
-        <ul className="text-sm text-gray-600 space-y-1">
-          <li>• <span className="font-medium text-green-600">0.8～1.3</span>: 安全範囲</li>
-          <li>• <span className="font-medium text-yellow-600">0.8未満 または 1.3～1.5</span>: 注意</li>
-          <li>• <span className="font-medium text-red-600">1.5超</span>: 高リスク</li>
+      <div className="mt-4 p-4 bg-gray-50 rounded-lg border-2 border-keio-blue">
+        <h3 className="font-semibold text-keio-blue mb-2">ACWRリスク範囲</h3>
+        <ul className="text-sm text-keio-blue space-y-1">
+          <li>• <span className="font-medium">0.8～1.3</span>: 安全範囲</li>
+          <li>• <span className="font-medium text-keio-gold">0.8未満 または 1.3～1.5</span>: 注意</li>
+          <li>• <span className="font-medium text-keio-red">1.5超</span>: 高リスク</li>
         </ul>
       </div>
     </div>
